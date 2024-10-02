@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loading</title>
+    <style>
+        *{
+            background-color: black;
+        }
+        .loader::after{
+            color: azure;
+            content: '';
+            font-size: 200px;
+            font-weight: 600;
+            animation-name: anitext;
+            animation-duration: 1900ms;
+            animation-iteration-count: infinite;
+        }
+        @keyframes anitext{
+            0%{ content: "l";}
+            10%{ content: "lo";}
+            20%{ content: "loa";}
+            30%{ content: "load";}
+            40%{ content: "load";}
+            50%{ content: "loadi";}
+            60%{ content: "loadin";}
+            70%{ content: "loading";}
+            80%{ content: "loading.";}
+            90%{ content: "loading...";}
+            1000%{ content: "loading....";}
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>
+</html>
