@@ -3,84 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weather app</title>
-    <link  rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="card">
-        <div class="search">
-            <input type="text" placeholder="enter city name" spellcheck="false">
-            <button><img src="images/search.png" alt=""></button>
-        </div>
-        <div class="weather">
-            <img src="images/rain.png" class="weather-icon">
-            <h1 class="temp">22°C</h1>
-            <h2 class="city">New York</h2>
-            <div class="details">
-                <div class="col">
-                    <img src="images/humidity.png">
-                    <div>
-                        <p class="humidity">50%</p>
-                        <p>humidity</p>
-                    </div>
-                </div>
-                <div class="col">
-                    <img src="images/wind.png">
-                    <div>
-                        <p class="wind">50 km/h</p>
-                        <p>Wind speed</p>
-                    </div>
-                </div>
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="style.css">
+    <head>
+
+        <div class="container">
+            <div class="calculator">
+                <form>
+                  <div class="display">
+                    <input type="text" name="display">
+                  </div>
+                  <div>
+                    <input type="button" value="AC" onclick="display.value = ''" class="operator">
+                    <input type="button" value="DE"  onclick="display.value = display.value.tostring().slice(0,-1)"
+                    class="operator">
+                    <input type="button" value="." onclick="display.value += '.'"class="operator">
+                    <input type="button" value="+" onclick="display.value += '+'"class="operator">
+                  </div>  
+                  <div>
+                    <input type="button" value="1" onclick="display.value += '1'" >
+                    <input type="button" value="2" onclick="display.value += '2'">
+                    <input type="button" value="3" onclick="display.value += '3'">
+                    <input type="button" value="-" onclick="display.value += '-'" class="operator">
+                  </div>
+                  <div>
+                    <input type="button" value="4" onclick="display.value += '4'">
+                    <input type="button" value="5" onclick="display.value += '5'">
+                    <input type="button" value="6" onclick="display.value += '6'">
+                    <input type="button" value="/" onclick="display.value += '/'" class="operator">
+                  </div>
+                  <div>
+                    <input type="button" value="7" onclick="display.value += '7'">
+                    <input type="button" value="8" onclick="display.value += '8'">
+                    <input type="button" value="9" onclick="display.value += '9'">
+                    <input type="button" value="*" onclick="display.value += '*'" class="operator">
+                  </div>
+                  <div>
+                    <input type="button" value="0" onclick="display.value += '0'">
+                    <input type="button" value="00" onclick="display.value += '00'">
+                    <input type="button" value="%" onclick="display.value += '%'" class="operator">
+                    <input type="button" value="=" onclick="display.value = eval(display.value)" class="equal">
+                  </div>
+                </form>
             </div>
         </div>
-    </div>
 
-    <script>
-        const apikey ="bbaafbf8f1ac3e9366b08f2c7ec4fec8";
-        const apiurl = "https://api.openweathermap.org/data/2.5/weather?unit=metric&q=";
-
-        const searchBox= document.querySelector(".search input");
-        const searchBtn= document.querySelector(".search button");
-        const weatherIcon = document.querySelector("weather-icon");
-         
-        async function checkWeather(city) {
-            const response = await fetch(apiurl + city + `&appid=${apikey}`);
-            var data = await response.json();
-
-            console.log(data)
-
-            document.querySelector(".city").innerHTML = data.name;
-            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-            document.querySelector(".humidity").innerHTML = data.main.humidity +"%";
-            document.querySelector(".wind").innerHTML = data.wind.speed+ " km/h";
-
-            if (data.weather[0].main == "Clouds"){
-                weatherIcon.src = "images/clouds.png";
-            }
-            else  if (data.weather[0].main == "Clear"){
-                weatherIcon.src = "images/clear.png";
-            }
-            else  if (data.weather[0].main == "Rain"){
-                weatherIcon.src = "images/rain.png";
-            }
-            else  if (data.weather[0].main == "Drizzle"){
-                weatherIcon.src = "images/drizzle.png";
-            }
-            else  if (data.weather[0].main == "Mist"){
-                weatherIcon.src = "images/mist.png";
-            }
-
-          
-        }
-        searchBtn.addEventListener("click",()=>{
-            
-           checkWeather(searchBox.value) ;
-            
-        })
-                    
-
-
-       
-    </script>
+   
+</head>
+<body>
+    
 </body>
 </html>

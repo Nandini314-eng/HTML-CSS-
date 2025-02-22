@@ -1,84 +1,52 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-sizing: border-box;
 }
-body{
-    background-color: black;
-}
-.card{
-    width: 90%;
-    max-width: 470px;
-    background: linear-gradient(125deg,#029b9b,#012525);
-    color: #1ae0e0;
-    margin: 100px auto 0;
-    border-radius: 20px;
-    padding: 40px 35px;
-    text-align: center;
-}
-.search{
+.container{
+    background: rgb(4, 189, 240);
     width: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
-.search input{
-    border: 0;
-    outline: 0;
-    background: #7af0f0;
-    color: #03a9a9;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
-    flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
-}
-.search button{
-    border: 0;
-    outline: 0;
-    background: #7af0f0;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer; 
-}
-.search button img{
-    width: 16px;
-}
-.weather-icon{
-    width: 170px;
-    margin-top: 30px;
-}
-.weather h1{
-    font-size: 70px;
-    font-weight: 500px;
-}
-.weather h2{
-    font-size: 45px;
-    font-weight: 400px;
-    margin-top: -10px;
-}
-.details{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    margin-top: 50px;
+.calculator{
+    background: rgb(2, 52, 67);
+    padding: 25px;
+    border-radius: 10%;
 
 }
-.col{
+.calculator form input{
+    border: 0;
+    outline: 0;
+    width:60px ;
+    height: 60px;
+    border-radius:10px ;
+    box-shadow: -8px -8px 15px rgba(255,255,255,0.1), 5px 5px 15px rgba(255,255, rgba(0,0,0,0.2));
+    background: transparent;
+    font-size: 30px;
+    color: #fff;
+    margin: 10px;
+}
+ form .display{
     display: flex;
-    align-items:center ;
-    text-align: left;
+    background: rgb(4, 114, 148);
+    border-radius: 10px;
+    justify-content: flex-end;
+    margin: 20px 0;
 }
-.col img{
-    width: 40px;
-    margin-right: 10px;
+form .display input{
+   text-align: right;
+   flex: 1;
+   font-size: 45px;
+   box-shadow: none;
 }
-.humidity, .wind{
-    font-size: 20px;
-    margin: -6px;
+form  input.equal{
+    background: rgb(4, 114, 148);
+    border-radius: 50%; 
 }
-
+form input.operator{
+    color:aquamarine
+}
