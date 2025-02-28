@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Green Calendar</title>
+    <link rel="stylesheet" href="calander_style.css">
+</head>
+<body>
+
+    <div class="calendar">
+        <div class="year" id="year"></div>
+        <div class="days">
+            <span>Sun</span>
+            <span>Mon</span>
+            <span>Tue</span>
+            <span>Wed</span>
+            <span>Thu</span>
+            <span>Fri</span>
+            <span>Sat</span>
+        </div>
+        <div class="dates" id="calendar-dates"></div>
+        <div class="footer" id="time"></div>
+    </div>
+
+    <script>
+        // Function to generate the calendar for the current month and year
+        function generateCalendar() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const currentDate = date.getDate();
+            const currentMonth = date.getMonth();
+            const firstDayOfMonth = new Date(year, currentMonth, 1).getDay();
+            const daysInMonth = new Date(year, currentMonth + 1, 0).getDate();
+
+            // Set the year at the top of the calendar
+            document.getElementById('year').textContent = year;
+
+            // Create the calendar dates grid
+            const calendarDates = document.getElementById('calendar-dates');
+            calendarDates.innerHTML = '';
+
+            // Create empty cells for the days before the start of the month
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyCell = document.createElement('div');
+                calendarDates.appendChild(emptyCell);
+            }
+
+            // Generate days of the month
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayCell = document.createElement('div');
+                dayCell.classList.add('date');
+                dayCell.textContent = i;
+
+                // Highlight today's date
+                if (i === currentDate) {
+                    dayCell.classList.add('current-day');
+                }
+
+                calendarDates.appendChild(dayCell);
+            }
+
+            // Display the time in the footer
+            const timeElement = document.getElementById('time');
+            setInterval(() => {
+                const currentTime = new Date();
+                timeElement.textContent = currentTime.toLocaleTimeString();
+            }, 1000);
+        }
+
+        // Call the generateCalendar function when the page loads
+        window.onload = generateCalendar;
+    </script>
+
+</body>
+</html>
