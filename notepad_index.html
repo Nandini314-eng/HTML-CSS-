@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Notepad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .notepad-container {
+            width: 80%;
+            max-width: 700px;
+            height: 80vh;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .header button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .header button:hover {
+            background-color: #45a049;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            line-height: 1.5;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border: 2px solid #4CAF50;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="notepad-container">
+    <div class="header">
+        <h1>Notepad</h1>
+        <button onclick="saveText()">Save</button>
+    </div>
+    <textarea id="notepad" placeholder="Start typing here..."></textarea>
+</div>
+
+<script>
+    // Function to save the text in localStorage
+    function saveText() {
+        const text = document.getElementById('notepad').value;
+        localStorage.setItem('notepadText', text);
+        alert('Text saved!');
+    }
+
+    // Function to load the saved text from localStorage
+    function loadText() {
+        const savedText = localStorage.getItem('notepadText');
+        if (savedText) {
+            document.getElementById('notepad').value = savedText;
+        }
+    }
+
+    // Load the saved text when the page is loaded
+    window.onload = loadText;
+</script>
+
+</body>
+</html>
