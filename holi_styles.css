@@ -1,0 +1,83 @@
+/* Reset and general styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+/* Centered container */
+.container {
+    text-align: center;
+    position: relative;
+}
+
+/* Happy Holi text animation */
+.happy-holi {
+    font-size: 4rem;
+    color: #f44336;
+    font-weight: bold;
+    animation: textAnimation 2s ease-in-out infinite;
+}
+
+/* Animation for the "Happy Holi" text */
+@keyframes textAnimation {
+    0% {
+        color: #f44336;
+        transform: scale(1);
+    }
+    25% {
+        color: #FFD700;
+        transform: scale(1.2);
+    }
+    50% {
+        color: #32CD32;
+        transform: scale(1);
+    }
+    75% {
+        color: #00BFFF;
+        transform: scale(1.2);
+    }
+    100% {
+        color: #FF6347;
+        transform: scale(1);
+    }
+}
+
+/* Holi Effect */
+.holi-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.holi-effect .dot {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    animation: moveDot 3s infinite;
+}
+
+@keyframes moveDot {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y));
+    }
+}
+
