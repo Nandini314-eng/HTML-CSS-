@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CALCULATOR</title>
-    <link  rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="weather_style.css" />
 </head>
 <body>
+  <div class="card">
+    <h1>Weather App</h1>
+
+    <div class="search">
+      <input type="text" id="cityInput" placeholder="Enter city name">
+      <button onclick="getWeather()">Get Weather</button>
+    </div>
+
+    <div class="weather-details">
+      <p><strong>Temperature:</strong> <span id="temperature">--</span></p>
+      <p><strong>Humidity:</strong> <span id="humidity">--</span></p>
+      <p><strong>Wind Speed:</strong> <span id="wind">--</span></p>
+    </div>
+
+    <div class="converter">
+      <h2>Convert Temperature</h2>
+      <input type="number" id="tempInput" placeholder="Enter Temperature">
+      <select id="conversionType">
+        <option value="CtoF">Celsius to Fahrenheit</option>
+        <option value="FtoC">Fahrenheit to Celsius</option>
+      </select>
+      <button onclick="convertTemperature()">Convert</button>
+      <p id="convertedResult"></p>
+    </div>
+  </div>
+
+  <script src="weather_script.js"></script>
+</body>
+</html>
    
